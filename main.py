@@ -54,8 +54,7 @@ def solve_multiproc(target_md5_hex, target_sha256_hex, regions=REGIONS, processe
     letter_chunks = chunk_letters(LETTERS, processes)
     combos_estimate = len(LETTERS) * 1000 * (len(LETTERS)**2) * len(regions)
     print("py_hash_lib/run.py")
-    print(f"~{combos_estimate/1000:.1f} тыс возможных результатов (оценка)")
-    print(f"Используем процессов: {processes}")
+    print(f"~{combos_estimate/1000:.1f} тыс возможных результатов")
 
     start = time.perf_counter()
 
@@ -112,7 +111,4 @@ if __name__ == "__main__":
     target_sha256 = "ef581243eb6f7fa74ce03466b9051464275c6b34017a6f031f2548a6d5d0b711"
 
     result = solve_multiproc(target_md5, target_sha256, regions=["77","78","50","97","99","177","199","196"])
-    if result:
-        print("Найден номер:", result)
-    else:
-        print("Совпадений не найдено на выбранных регионах.")
+
